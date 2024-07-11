@@ -1,0 +1,5 @@
+2024-07-11T17:30:33.302Z error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
+2024-07-11T17:30:58.438Z error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
+2024-07-11T17:32:19.154Z error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2024-07-11T17:32:48.038Z error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2024-07-11T17:34:54.114Z error: ER_BAD_DB_ERROR: Unknown database 'aznotes'
