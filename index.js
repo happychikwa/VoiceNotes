@@ -1,26 +1,26 @@
 const express = require('express')
 const app = express()
-const {writeToFile} = require('./Service/createNote')
-const mysql = require('mysql')
+const {writeToFile, deleteNote} = require('./Service')
+// const mysql = require('mysql')
 // const winston = require('winston')
 const {logger} = require('./log/logger')
 
-const conn = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'AZNotes'
-})
+// const conn = mysql.createConnection({
+//     host: '127.0.0.1',
+//     user: 'root',
+//     password: '',
+//     database: 'AZNotes'
+// })
 
 
-      conn.connect((err) => {
-      if(err){
-          // console.log("Connection Error: ", err.stack)
-          logger.error(err.message)
-          return
-      }
-      console.log("connection thread", conn.threadId)
-  })
+//       conn.connect((err) => {
+//       if(err){
+//           // console.log("Connection Error: ", err.stack)
+//           logger.error(err.message)
+//           return
+//       }
+//       console.log("connection thread", conn.threadId)
+//   })
 
 app.use(express.json())
 
@@ -35,7 +35,8 @@ app.put('/note/edit/{id}', (req, res) => {
 app.get('/note/open/{id}', (req,res) => {
    res.send("File openeded")
 })
-app.delete('/note/delete/{id}', (req, res) => {
+app.delete('/note/delete', (req, res) => {
+  deleteNote(req.body.noteId)
   res.send("File deleted")
 })
 
