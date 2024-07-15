@@ -16,7 +16,7 @@ const logger = createLogger({
         new transports.Console({ format: combine(colorize(), logFormat) }), // Log to console
         new transports.File({ filename: './logs/error.log', level: 'error' }),    // Log errors to a file
         new transports.File({ filename: './logs/combined.log' }),                  // Log all messages to a 
-        new transports.File({ filename, './logs/info.log' })
+        new transports.File({ filename: './logs/info.log' })
     ]
 })
 
