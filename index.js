@@ -39,7 +39,7 @@ app.get('/note/open/{id}', (req,res) => {
 })
 app.get('/note/allnotes', async (req, res) => {
   const notes = await getAllNotes()
-  console.log(notes)
+  console.log("My notes: ",notes)
   res.json(notes)
 })
 app.get('/note/note', (req, res) => {

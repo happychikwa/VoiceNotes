@@ -3,38 +3,20 @@ const {logger} = require('../log/logger.js')
 //get the note
 const getNote = async (noteId) => {
     try {
-        databaseConnection.query(
-            'SELECT * FROM notes WHERE id = (?)',
-            [noteId],
-            (error, results) => {
-                if(error){
-                    logger.error(error)
-                    return null
-                }
-                return results[0]
-            }
-        )
+        const [results, fields] = databaseConnection.query('SELECT * FROM notes WHERE id = (?);', [noteId])
+        return results
     } catch (error) {
         logger.error(error)
         return null
     }
 }
 
-const getAllNotes = () => {
+const getAllNotes = async () => {
     try {
-        databaseConnection.query(
-            'SELECT * FROM notes',
-            (error, results) => {
-                if (error) {
-                    logger.error(error)
-                    return null
-                }
-                console.log(results[0])
-                return results
-            }
-        )
+        const [results, fields] = await databaseConnection.query('SELECT * FROM notes;');
+       return results
     } catch (error) {
-        // logger(error)
+        logger(error)
         return null
     }
 }

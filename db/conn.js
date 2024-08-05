@@ -1,4 +1,4 @@
-const mysql = require('mysql')
+const mysql = require('mysql2/promise')
 const winston = require('winston')
 const logger = require('../log/logger')
 
@@ -9,15 +9,15 @@ const databaseConnection = mysql.createPool({
     database: 'AZNotes'
 })
 
-const conn = () => {
-    databaseConnection.connect((err) => {
-            if(err){
-                console.log("Connection Error: ", err.stack)
-                logger.error(err.stack)
-                return null
-            }
-        console.log("connection thread", conn.threadId)
-    })
-}
+// const conn = () => {
+//     databaseConnection.connect((err) => {
+//             if(err){
+//                 console.log("Connection Error: ", err.stack)
+//                 logger.error(err.stack)
+//                 return null
+//             }
+//         console.log("connection thread", conn.threadId)
+//     })
+// }
 
 module.exports = { databaseConnection }
