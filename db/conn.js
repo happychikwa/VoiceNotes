@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const winston = require('winston')
 const logger = require('../log/logger')
 
-const databaseConnection = mysql.createConnection({
+const databaseConnection = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
     password: '',

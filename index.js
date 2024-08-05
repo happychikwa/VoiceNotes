@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
-const {writeToFile, deleteNote} = require('./Service')
+const {writeToFile} = require('./Service/createNote.js')
 // const mysql = require('mysql')
 // const winston = require('winston')
 const {logger} = require('./log/logger')
+const { deleteNote, deleteFile } = require('./Service/deleteNote')
+const {getNote, getAllNotes} = require('./Service/getNotes.js')
 
 // const conn = mysql.createConnection({
 //     host: '127.0.0.1',
@@ -35,8 +37,17 @@ app.put('/note/edit/{id}', (req, res) => {
 app.get('/note/open/{id}', (req,res) => {
    res.send("File openeded")
 })
+app.get('/note/allnotes', async (req, res) => {
+  const notes = await getAllNotes()
+  console.log(notes)
+  res.json(notes)
+})
+app.get('/note/note', (req, res) => {
+  res.send(getNote(req.params.id))
+})
 app.delete('/note/delete', (req, res) => {
-  deleteNote(req.body.noteId)
+  // deleteNote(req.body.noteId)
+  deleteFile(req.body.noteId)
   res.send("File deleted")
 })
 

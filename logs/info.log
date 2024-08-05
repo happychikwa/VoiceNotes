@@ -1,8 +1,3 @@
-2024-07-11T17:30:33.302Z error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
-2024-07-11T17:30:58.438Z error: ER_ACCESS_DENIED_ERROR: Access denied for user ''@'localhost' (using password: NO)
-2024-07-11T17:32:19.154Z error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
-2024-07-11T17:32:48.038Z error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
-2024-07-11T17:34:54.114Z error: ER_BAD_DB_ERROR: Unknown database 'aznotes'
 2024-07-15T16:47:12.002Z error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{} FROM notes WHERE id = {NULL}' at line 1
 2024-07-15T16:47:12.006Z info: undefined
 2024-07-15T16:50:50.721Z error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{} FROM notes WHERE id = (NULL)' at line 1

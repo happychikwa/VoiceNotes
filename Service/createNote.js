@@ -22,7 +22,7 @@ const writeToFile = async (title, content) => {
                 console.log("written to table with :", results)
             }
         )
-        databaseConnection.end();
+        //databaseConnection.end();
     }
     catch(err){
         console.log(err)
