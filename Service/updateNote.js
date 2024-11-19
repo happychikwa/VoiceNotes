@@ -2,7 +2,7 @@ const { writeFile } = require('fs/promises')
 const {getNote} = require('../Service/getNotes')
 const databaseConnection = require('../db/conn')
 const logger = require('../log/logger')
-const fs = require('fs')
+const fsx = require('fs-extra')
 const { get } = require('http')
 
 const updateNote = async (noteObject) => {
@@ -15,14 +15,14 @@ const updateNote = async (noteObject) => {
             (result) => {
                 //update db details on id
                 databaseConnection.query(
-                    'UPDATE notes SET file = (?), updated_at = (?) WHERE id = (?);',[result.file, todayDate, result.id]
+                    'UPDATE notes SET file = (?), updated_at = (?) WHERE id = (?);',[result.file, todayDate, l.id]
                 )
                 fs.writeFile(result.file,noteObject.body)
             }
         )
         
         //update file directory        
-        fs.writeFile(no)
+        //fs.writeFile(no)
     } catch (error) {
         logger(error)
     }
